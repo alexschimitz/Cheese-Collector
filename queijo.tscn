@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://7lnvuo4xig4f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmryv"]
+albedo_color = Color(0.9119825, 0.80804646, 0.18934685, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i03ae"]
+material = SubResource("StandardMaterial3D_dmryv")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3vl07"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Queijo" type="Node3D"]
+
+[node name="Queijo" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.022861958, 0.033118486, -0.02705437)
+mesh = SubResource("BoxMesh_i03ae")
+
+[node name="Queijo" type="StaticBody3D" parent="Queijo"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Queijo/Queijo"]
+shape = SubResource("ConcavePolygonShape3D_3vl07")

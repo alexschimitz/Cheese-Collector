@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://8nnq76pxdova"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edc3g"]
+bg_color = Color(0.29803923, 0.29803923, 0.29803923, 1)
+corner_detail = 5
+
+[node name="task_ui" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 178.0
+offset_bottom = 78.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_edc3g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Timer_Text" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Time: 20.00"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 2.0
+offset_top = 18.0
+offset_right = 349.0
+offset_bottom = 123.0
+theme_override_colors/default_color = Color(0.99776, 0.88867956, 7.70092e-07, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "Task:"
+
+[node name="task_text" type="RichTextLabel" parent="."]
+offset_left = 3.0
+offset_top = 45.0
+offset_right = 350.0
+offset_bottom = 150.0
+text = "Sample text to task"
+text_direction = 1

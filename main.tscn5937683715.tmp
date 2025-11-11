@@ -1,0 +1,134 @@
+[gd_scene load_steps=15 format=3 uid="uid://d28vmtkhid6hk"]
+
+[ext_resource type="PackedScene" uid="uid://cv241eo0xdwsr" path="res://mapa_de_testes.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dyooqs0dkijvs" path="res://Player/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://doki0sf3832r4" path="res://glb_models/Objetos/porta_80_cm.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bqupuyrkul6ot" path="res://glb_models/Objetos/marcoporta80cm.gltf" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cnmbbu1j4f0nx" path="res://Interações/balcao.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d3c1p2jmuc4wu" path="res://Interações/abajur.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://b8tmnwi5c4cbm" path="res://Interações/porta_80_cm_macaneta.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://2mifc42bar5i" path="res://Interações/placa.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bvvrncus6bu7q" path="res://lavatorio.tscn" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://mwacefukhj4t" path="res://Interações/crosshair.png" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cc8ujwa214kmd" path="res://portalock.tscn" id="11_efxa6"]
+
+[sub_resource type="GDScript" id="GDScript_dg77c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_efxa6"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9042108, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.84, 0.98426354, 4.756)
+
+[node name="MapaDeTestes" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.877054, 2.3841858e-07, -5.6368685)
+script = SubResource("GDScript_dg77c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.4330771, 0.9013569, 0, -0.9013569, 0.4330771, 0, 4.6953397, 0)
+visible = false
+
+[node name="porta80cm" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -4.5891285, 0.10876906, 1.8895631)
+
+[node name="marcoporta80cm" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0106883, 0.11263004, 1.9065027)
+
+[node name="Balcao" parent="." instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0680494, 0.082365334, 1.2342033)
+
+[node name="Balcao" parent="Balcao" instance=ExtResource("5_lquwl")]
+transform = Transform3D(0.6321916, 0, 0.7748121, 0, 1, 0, -0.7748121, 0, 0.6321916, -4.0680494, -0.047955275, 2.0910492)
+
+[node name="abajur" parent="Balcao/Balcao" instance=ExtResource("6_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.776598, 0.99744457, 0.6897869)
+
+[node name="porta80cm2" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.584136, 0.1131255, 0)
+
+[node name="placa" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.8146336, 0.10866654, 1.409596)
+
+[node name="lavatorio" parent="." instance=ExtResource("8_kek77")]
+transform = Transform3D(-0.6822249, 0, -1.1066024, 0, 1.3, 0, 1.1066024, 0, -0.6822249, -0.7028806, 0.1131255, 4.933737)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Center_Anchor" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Center_Anchor"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("10_4c57u")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="number_on_screen" type="Label3D" parent="."]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -3.4109185, 1.5923288, 6.0298796)
+text = "1"
+
+[node name="key_pad_0" type="MeshInstance3D" parent="." groups=["1"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.391371, 1.3398241, 5.894398)
+mesh = SubResource("BoxMesh_efxa6")
+
+[node name="2" type="Label3D" parent="key_pad_0"]
+transform = Transform3D(-2.1855692e-07, 0, -4.9999995, 0, 5, 0, 4.9999995, 0, -2.1855692e-07, -0.5025978, 0.058609962, -0.023536682)
+text = "0"
+
+[node name="1" type="StaticBody3D" parent="key_pad_0" groups=["1"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key_pad_0/1" groups=["1"]]
+shape = SubResource("ConcavePolygonShape3D_efxa6")
+
+[node name="key_pad_1" type="MeshInstance3D" parent="." groups=["2"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.391371, 1.3398241, 6.1092787)
+mesh = SubResource("BoxMesh_efxa6")
+
+[node name="1" type="Label3D" parent="key_pad_1"]
+transform = Transform3D(-2.1855692e-07, 0, -4.9999995, 0, 5, 0, 4.9999995, 0, -2.1855692e-07, -0.5025978, 0.058609962, -0.023536682)
+text = "1"
+
+[node name="2" type="StaticBody3D" parent="key_pad_1" groups=["2"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key_pad_1/2" groups=["2"]]
+shape = SubResource("ConcavePolygonShape3D_efxa6")
+
+[node name="key_pad_2" type="MeshInstance3D" parent="." groups=["3"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.391371, 1.3398241, 6.318872)
+mesh = SubResource("BoxMesh_efxa6")
+
+[node name="3" type="Label3D" parent="key_pad_2"]
+transform = Transform3D(-2.1855692e-07, 0, -4.9999995, 0, 5, 0, 4.9999995, 0, -2.1855692e-07, -0.5025978, 0.058609962, -0.023536682)
+text = "2"
+
+[node name="2" type="StaticBody3D" parent="key_pad_2" groups=["3"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key_pad_2/2" groups=["3"]]
+shape = SubResource("ConcavePolygonShape3D_efxa6")
+
+[node name="portalock" parent="." instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0514653, 0, 4.3788357)
