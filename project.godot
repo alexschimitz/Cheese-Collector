@@ -14,6 +14,10 @@ config/name="Cheese Run"
 run/main_scene="uid://bdxphp5luihc1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[autoload]
+
+Score="*res://score.gd"
+
 [display]
 
 window/stretch/mode="viewport"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://chkhsrxdvku1k"]
 
-[ext_resource type="Texture2D" uid="uid://mwacefukhj4t" path="res://Interações/crosshair.png" id="1_cfom6"]
+[ext_resource type="Texture2D" uid="uid://mwacefukhj4t" path="res://Other/crosshair.png" id="1_cfom6"]
 [ext_resource type="Script" uid="uid://bj8880i00tuqi" path="res://ui/player_ui.gd" id="1_ehg4m"]
 [ext_resource type="PackedScene" uid="uid://8nnq76pxdova" path="res://ui/task_ui.tscn" id="3_iwa1g"]
 
@@ -38,6 +38,9 @@ text = "Restart"
 [node name="MainMenu" type="Button" parent="GameOver_Screen/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="HighScore_Label" type="Label" parent="GameOver_Screen/VBoxContainer"]
+layout_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

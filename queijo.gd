@@ -9,7 +9,7 @@ func _ready() -> void:
 	set_process(true)
 
 func _process(delta: float) -> void:
-	rotate_y(deg_to_rad(70) * delta)
+	rotate_y(deg_to_rad(150) * delta)
 	
 func collect():
 	if game_manager and game_manager.has_method("collect_cheese"):

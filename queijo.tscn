@@ -1,21 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://7lnvuo4xig4f"]
+[gd_scene load_steps=7 format=4 uid="uid://7lnvuo4xig4f"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmryv"]
-albedo_color = Color(0.9119825, 0.80804646, 0.18934685, 1)
+[ext_resource type="Texture2D" uid="uid://vlp757dd6qvt" path="res://Models/Cheese.png" id="1_dmryv"]
+[ext_resource type="Script" uid="uid://cod63ca35qj3g" path="res://queijo.gd" id="1_i03ae"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_i03ae"]
-material = SubResource("StandardMaterial3D_dmryv")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_royvi"]
+resource_name = "Cheese"
+cull_mode = 2
+albedo_texture = ExtResource("1_dmryv")
+roughness = 0.5
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3vl07"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[sub_resource type="ArrayMesh" id="ArrayMesh_i03ae"]
+_surfaces = [{
+"aabb": AABB(-0.94911385, -0.5870718, -1.2302388, 1.7839425, 1.1282626, 2.3053167),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAAHAAEACAACAAEABwAIAAEACQAAAAIABwAAAAkACAAKAAIACQACAAoABwALAAgABwAJAAsACwADAAgAAwAKAAgACwAGAAMAAwAEAAoABgAEAAMABQAJAAoACwAJAAUABQAKAAQACwAFAAYABgAFAAQA"),
+"lods": [0.13075493, PackedByteArray("AAABAAIAAwACAAEAAAACAAQAAwAEAAIABQAAAAQABgAEAAMABgAFAAQABwADAAEABwAGAAMAAAAHAAEABwAFAAYABwAAAAUA")],
+"name": "Cheese",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("YwWfBjf9AAAdbtHfAAAAAAAApL83/QAAKYDR3wAAAAD/////UvQAAGf8AABS9AAAD3oAAAAAAAADaAAAAAAAACN30d8AAAAAU4UAAP//AACBjNHf//8AAAlxAAAAAAAA")
+}]
+blend_shape_mode = 0
 
-[node name="Queijo" type="Node3D"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_guvov"]
+resource_name = "queijo_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.94911385, -0.5870718, -1.2302388, 1.7839425, 1.1282626, 2.3053167),
+"attribute_data": PackedByteArray("AkD5//9//L//f/n/AkD8vwJA/L8CQP9//3//f/9//L8CQP9//38CQP9//38CQAJAAkAFAP9/BQD/fwJAAkACQAUA/38CQAJAAkD/fwUAAkD/f/9//L8CQPy//3//fwJAAkD9n/9//Z8CQAQg/38EIAQg/38EIAJA/Z//f/2fAkD9nwJA/Z//fwQgAkAEIP9//38EIAJABCA="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAGAAGABkAGAAFAAYABAAYABkABAAZAAcACAAJAAoACAALAAkAGgANABsAGgAMAA0AHAARABIAHAAdABEAHgAVABYAHgAfABUAFAAgACEAFAAXACAAEAAiACMAEAATACIADwAkAA4ADwAlACQA"),
+"lods": [0.13075493, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAGAAcACAAJAAoACAALAAkADAANAA4ADwAMAA4AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_royvi"),
+"name": "Cheese",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("YwWfBjf9udwdbtHfAAD/3AAApL83/ZncA2gAAAAAG90DaAAAAAD//w96AAAAAP//KYDR3wAA//8dbtHfAAD//w96AAAAAG7e/////1L0Xd4pgNHfAAB33mf8AABS9FXeYwWfBjf94MEAAKS/N/3Mv/////9S9EK/Z/wAAFL0nb4DaAAAAADkv2f8AABS9CfAD3oAAAAA/79jBZ8GN/3jvymA0d8AALL6AACkvzf9yfwdbtHfAAAe/P////9S9Kb3CXEAAAAA//8jd9HfAAD//1OFAAD//6+/gYzR3///8L0JcQAAAAABwFOFAAD//yjAI3fR3wAASvyBjNHf///M/IGM0d///7f3I3fR3wAAXftThQAA///jvwlxAAAAAOW/gYzR3///zL5ThQAA//8cvu3QLtFc0e7QutBL0YjR1NBgwZ6+YMGevmDBnr5gwZ6+Qy/lMF8v1DAyL+8wby/LMGn+T/5U/lD+LgeJB0sHiAfOA0KCGg7yeAAA/3/NA6SDsnu3vRd7HL3Fe3+98H6bv2DBnr5gwZ6+U/5Q/kD+UP6sAyl+Vg7UeJh7Zb0Texq93X6QvwN7Ub3NA5uDzgPngUMHiAdhB4cH")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i03ae")
 
-[node name="Queijo" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.022861958, 0.033118486, -0.02705437)
-mesh = SubResource("BoxMesh_i03ae")
+[sub_resource type="BoxShape3D" id="BoxShape3D_i03ae"]
+size = Vector3(2.012207, 1.3667603, 2.7139893)
 
-[node name="Queijo" type="StaticBody3D" parent="Queijo"]
+[node name="Cheese" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1_i03ae")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Queijo/Queijo"]
-shape = SubResource("ConcavePolygonShape3D_3vl07")
+[node name="Cheese" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5734823, 0, 0, 0, 1.5734823, 0, 0, 0, 1.5734823, 0, 0, 0)
+mesh = SubResource("ArrayMesh_guvov")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cheese"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cheese/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0666504, 0.0032653832, 0.08942683)
+shape = SubResource("BoxShape3D_i03ae")

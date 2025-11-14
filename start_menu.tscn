@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdxphp5luihc1"]
+[gd_scene load_steps=3 format=3 uid="uid://bdxphp5luihc1"]
 
 [ext_resource type="Script" uid="uid://cowr7igxf43y7" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="Texture2D" uid="uid://dkhwnwrrfciny" path="res://ui/logo_menu.png" id="2_ia0g5"]
 
 [node name="start_menu" type="Control"]
 layout_mode = 3
@@ -18,29 +19,22 @@ offset_right = 1170.0
 offset_bottom = 662.0
 color = Color(0.16924527, 0.1692453, 0.16924527, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = -70.0
+offset_right = 1337.0
+offset_bottom = 954.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ia0g5")
+expand_mode = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 61
-text = "CHEESE RUN"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StartGame" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="StartGame" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 394.0
+offset_right = 731.0
+offset_bottom = 473.0
 text = "START GAME"
 
 [node name="Commands" type="Label" parent="."]
@@ -52,7 +46,18 @@ offset_bottom = 615.0
 theme_override_font_sizes/font_size = 31
 text = "Commands:
 WASD - Move
-Mouse - Camera movement
+Mouse - Camera look
 Shift - Run"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 517.0
+offset_right = 1167.0
+offset_bottom = 688.0
+theme_override_font_sizes/font_size = 61
+text = "Santa Alvorada"
 horizontal_alignment = 1
 vertical_alignment = 1

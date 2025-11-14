@@ -1,50 +1,54 @@
 extends Control
 
-@onready var game_over_screen = $GameOver_Screen
-@onready var game_over_text = $GameOver_Screen/VBoxContainer/GameOver_Text
-@onready var restart_button = $GameOver_Screen/VBoxContainer/Restart_Button
+@onready var over_tela = $GameOver_Screen
+@onready var gameover_txt = $GameOver_Screen/VBoxContainer/GameOver_Text
+@onready var restart_btn = $GameOver_Screen/VBoxContainer/Restart_Button
+@onready var highscorelb = $GameOver_Screen/VBoxContainer/HighScore_Label
 @onready var game_manager = get_tree().current_scene.get_node(".")
 
-var cheese_count: int = 0
-const MAX_CHEESE: int = 5
 
 func _ready() -> void:
-	update_task_ui()
-	set_task("Collect 0/5 Cheese")
-	
-	game_over_screen.visible = false
-	
-	restart_button.pressed.connect(_on_restart_button_pressed)
+	update_task_ui(0, 5)	
+	over_tela.visible = false
 	
 func set_task(task_text: String):
 	$task_ui/task_text.text = task_text
 
-func update_task_ui():
-	set_task("Collect %d/%d cheese" % [cheese_count, MAX_CHEESE])
-
-func collect_cheese() -> void:
-	cheese_count += 1
-	update_task_ui()
+func update_task_ui(current: int, total: int):
+	var task_text = "Collect %d/%d Cheese" % [current, total]
 	
-	if cheese_count >= MAX_CHEESE:
-		win_game()
+	set_task(task_text)
 	
-func win_game() -> void:
-	print("End Game! Winner")
-	if game_manager and game_manager.has_method("pause_game_state"):
-		game_manager.pause_game_state()
 	
 func update_timer(time_remaining: float):
 	var time_str = "Time: %0.2f" % time_remaining
 	$task_ui/PanelContainer/VBoxContainer/Timer_Text.text = time_str
 	
 	
-func show_game_over_screen(message: String):
-	game_over_text.text = message
-	game_over_screen.visible = true
+func show_over_tela(message: String):
+	gameover_txt.text = message
+	over_tela.visible = true
 	get_tree().paused = true
 
+	update_score_display()
 
+
+func update_score_display():
+	var scores: Array = Score.get_top_scores() 
+	var score_display = "HIGHSCORE:\n"
+	print("Scores recebidos pela UI:", scores)
+	
+	if scores.is_empty():
+		score_display += "Nothing."
+	else:
+		for i in range(scores.size()):
+			var rank = i + 1
+			var time_str = "%0.2f" % scores[i]
+			score_display += "%d. %s seconds\n" % [rank, time_str]
+			
+	
+	highscorelb.text = score_display
+	
 func _on_restart_button_pressed():
 	get_tree().paused = false # Despausa o jogo
 	get_tree().reload_current_scene() # Reinicia a cena atual

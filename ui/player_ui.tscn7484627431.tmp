@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://chkhsrxdvku1k"]
+
+[ext_resource type="Texture2D" uid="uid://mwacefukhj4t" path="res://Other/crosshair.png" id="1_cfom6"]
+[ext_resource type="Script" uid="uid://bj8880i00tuqi" path="res://ui/player_ui.gd" id="1_ehg4m"]
+[ext_resource type="PackedScene" uid="uid://8nnq76pxdova" path="res://ui/task_ui.tscn" id="3_iwa1g"]
+
+[node name="player_ui" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ehg4m")
+
+[node name="GameOver_Screen" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -11.5
+offset_right = 1153.0
+offset_bottom = 639.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver_Screen"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="GameOver_Text" type="Label" parent="GameOver_Screen/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+
+[node name="Restart_Button" type="Button" parent="GameOver_Screen/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="GameOver_Screen/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="HighScore_Label" type="Label" parent="GameOver_Screen/VBoxContainer"]
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="crosshair" type="TextureRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(16, 32)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_cfom6")
+expand_mode = 1
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Center_Anchor" type="Control" parent="CanvasLayer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="task_ui" parent="." instance=ExtResource("3_iwa1g")]
+
+[connection signal="pressed" from="GameOver_Screen/VBoxContainer/Restart_Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOver_Screen/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d28vmtkhid6hk"]
+[gd_scene load_steps=10 format=3 uid="uid://d28vmtkhid6hk"]
 
 [ext_resource type="Script" uid="uid://bgibsn35eqith" path="res://game_manager.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dyooqs0dkijvs" path="res://Player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cxp2oamf0tiko" path="res://map.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://7lnvuo4xig4f" path="res://queijo.tscn" id="3_h2yge"]
+[ext_resource type="AudioStream" uid="uid://obqnqyd67ybw" path="res://Audio/coin.wav" id="5_lquwl"]
+[ext_resource type="AudioStream" uid="uid://bsciuq6txyrj8" path="res://Audio/win.wav" id="6_7mycd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
 
@@ -29,13 +31,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.452639, 3.6413116, -13.16
 wait_time = 20.0
 one_shot = true
 
-[node name="OmniLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.050784625, 0.9987096, 0, -0.9987096, 0.050784625, -19.705717, 6.6539874, -15.908186)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7mycd")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.868793, 2.8488655, -20.14581)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.1651281, -0.770713, 0.61541384, -0.5029659, 0.6025487, 0.61964536, -0.8483856, -0.20721135, -0.4871401, 0, 8.723863, 0)
+
+[node name="coin_collect" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_lquwl")
+
+[node name="winner" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_7mycd")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
